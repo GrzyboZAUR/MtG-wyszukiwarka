@@ -22,12 +22,6 @@ if lista_serii:
 else:
     wszystkie_karty = pd.Series(dtype=str)
 
-# wszystkie_karty = pd.Series(dtype=str)
-# for col in df_talie.columns:
-#     kolumna = df_talie[col].dropna()
-#     if not kolumna.empty:
-#         wszystkie_karty = pd.concat([wszystkie_karty, kolumna])
-
 # 3. Oczyść listę
 wszystkie_karty = wszystkie_karty.dropna().astype(str).str.strip().str.lower().unique()
 zbior_kart = set(wszystkie_karty)
