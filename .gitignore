@@ -212,3 +212,7 @@ __marimo__/
 *.xlsx
 *.csv
 wynik.csv
+
+# But do NOT ignore the sample data
+!sample_deck.xlsx
+!sample_data.csv
