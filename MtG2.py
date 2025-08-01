@@ -13,7 +13,7 @@ folder_csv = os.path.dirname(plik_csv)
 sciazka_wynik = os.path.join(folder_csv, "wynik.csv")
 
 # 1. Wczytaj plik z taliami
-df_talie = pd.read_excel(plik_talie, sheet_name='talie')
+df_talie = pd.read_excel(plik_talie, sheet_name=0)
 
 # 2. Połącz wszystkie kolumny w jedną listę
 lista_serii=[
