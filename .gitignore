@@ -211,9 +211,7 @@ __marimo__/
 .vscode/
 *.xlsx
 *.csv
-wynik.csv
 
-# But do NOT ignore the sample data
 !data/
 !data/*.xlsx
 !data/*.csv
