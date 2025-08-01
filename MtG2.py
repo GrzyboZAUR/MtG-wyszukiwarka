@@ -2,11 +2,15 @@ import pandas as pd
 import subprocess
 import platform
 import os
+from tkinter import filedialog
 
-# Uzupelnij ścieżki plików: 
-plik_talie = (r'C:\Users\bgrzybowski\Desktop\mtg\Rozgrywki testowe MTG.xlsx')
-plik_csv = (r'C:\Users\bgrzybowski\Desktop\mtg\karty.csv')
-ścieżka_wynik = (r'C:\Users\bgrzybowski\Desktop\mtg\wynik.csv')
+
+# wybór plików:
+plik_talie = filedialog.askopenfilename(title="Wybierz plik .xlsx z talią", filetypes=[("Excel files", "*.xlsx")])
+plik_csv = filedialog.askopenfilename(title="Wybierz plik CSV do skanowania", filetypes=[("CSV files", "*.csv")])
+# folder z wynikiem:
+folder_csv = os.path.dirname(plik_csv)
+sciazka_wynik = os.path.join(folder_csv, "wynik.csv")
 
 # 1. Wczytaj plik z taliami
 df_talie = pd.read_excel(plik_talie, sheet_name='talie')
@@ -58,9 +62,9 @@ df_csv.rename(columns={
 df_csv.drop(columns='Cena_float', inplace=True)
 
 # 13. Zapisz wynik
-df_csv.to_csv(ścieżka_wynik, index=False)
+df_csv.to_csv(sciazka_wynik, index=False)
 
-print(f"✅ Zapisano wynik do: {ścieżka_wynik}")
+print(f"✅ Zapisano wynik do: {sciazka_wynik}")
 
 # do ogarnięcia: automatyczne włączanie pliku na każdynm systmie 
 
@@ -75,4 +79,4 @@ def otworz_plik(path):
     else:
         print("❌ Nieobsługiwany system operacyjny")
 
-otworz_plik(ścieżka_wynik)
+otworz_plik(sciazka_wynik)
